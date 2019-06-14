@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var autoprefixer = require('gulp-autoprefixer');
-var wait = require('gulp-wait');
+
 
 gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
@@ -11,7 +11,7 @@ gulp.task('sass', function() {
         .pipe(browserSync.stream());
 });
 
-gulp.task('serve', ['sass'], function() {
+gulp.task('serve', ['sass', 'prefix'], function() {
     
     browserSync.init({
         server: "./"
